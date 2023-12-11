@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracMVVM.Views.DetalleFacturaView"
+             Title="DetalleFacturaView">
+    <VerticalStackLayout>
+        <Label Text="Detalle de Facturas" HorizontalOptions="CenterAndExpand" Margin="10" FontSize="Title"/>
+
+
+        <CollectionView HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding DetalleFacturas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,1,20,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*" />
+                                <ColumnDefinition Width="70*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+
+
+
+
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Producto ID" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
+                            <Label Text="{Binding ProductoID, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+
+                            <Label Text="Factura ID" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
+                            <Label Text="{Binding FacturaID, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="Costo" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" />
+                            <Label Text="{Binding Costo, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" />
+
+                            <Label Text="Cantidad" Grid.Column="0" Grid.Row="3" FontAttributes="Bold" />
+                            <Label Text="{Binding Cantidad, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" />
+
+                            <Label Text="Precio" Grid.Column="0" Grid.Row="4" FontAttributes="Bold" />
+                            <Label Text="{Binding Precio, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" />
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green" Clicked="Button_Clicked"/>
+        <Button Text="Actualizar" Margin="20,1,20,5" BackgroundColor="Yellow" TextColor="Black"/>
+        <Button Text="Eliminar" Margin="20,1,20,5" BackgroundColor="red"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracMVVM.Views.ProductoCrear"
+             Title="ProductoCrear">
+    <VerticalStackLayout Margin="30,2" VerticalOptions="CenterAndExpand" BindableLayout.ItemsSource="{Binding Producto}">
+        <VerticalStackLayout>
+            <Entry Placeholder="Nombre del Producto" Text="{Binding Path=Producto}" Margin="20,1,20,1"/>
+            <Entry Placeholder="Costo" Text="{Binding Path=Costo}" Margin="20,1,20,1"/>
+            <Entry Placeholder="Cantidad" Text="{Binding Path=Cantidad}" Margin="20,1,20,1"/>
+            <Entry Placeholder="Precio" Text="{Binding Path=Precio}" Margin="20,1,20,1"/>
+            <Entry Placeholder="CategoriaID" Text="{Binding Path=CategoriaID}" Margin="20,1,20,1"/>
+            
+            <Button Text="Guardar" Margin="20,10,20,10" BackgroundColor="Green" Command="{Binding SaveCommand, Mode=TwoWay}"/>
+            <Button Text="Volver" Margin="20,10,20,10" BackgroundColor="red" Clicked="Button_Clicked"/>
+
+
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracMVVM.Views.FacturasView"
+             Title="Lista de Facturas">
+    <VerticalStackLayout>
+        <Label Text="Listas de Facturas" HorizontalOptions="CenterAndExpand" Margin="10" FontSize="Title"/>
+
+
+        <CollectionView HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding Facturas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,1,20,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*" />
+                                <ColumnDefinition Width="70*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+
+
+
+
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Factura ID" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
+                            <Label Text="{Binding FacturaID, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+
+                            <Label Text="Fecha" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
+                            <Label Text="{Binding Fecha, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="SubTotal" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" />
+                            <Label Text="{Binding SubTotal, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" />
+
+                            <Label Text="Descuento" Grid.Column="0" Grid.Row="3" FontAttributes="Bold" />
+                            <Label Text="{Binding Descuento, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" />
+
+                            <Label Text="Monto" Grid.Column="0" Grid.Row="4" FontAttributes="Bold" />
+                            <Label Text="{Binding Monto, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" />
+
+                            <Label Text="TipoFacturaId" Grid.Column="0" Grid.Row="5" FontAttributes="Bold" />
+                            <Label Text="{Binding TipoFacturaId, Mode=TwoWay}" Grid.Column="1" Grid.Row="5" />
+
+                            <Label Text="ClienteId" Grid.Column="0" Grid.Row="6" FontAttributes="Bold" />
+                            <Label Text="{Binding ClienteId, Mode=TwoWay}" Grid.Column="1" Grid.Row="6" />
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green" Clicked="Button_Clicked"/>
+        <Button Text="Actualizar" Margin="20,1,20,5" BackgroundColor="Yellow" TextColor="Black"/>
+        <Button Text="Eliminar" Margin="20,1,20,5" BackgroundColor="red"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

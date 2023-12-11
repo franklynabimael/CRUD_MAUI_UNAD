@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracMVVM.Views.TipoFacturaView"
+             Title="Lista Tipos De Factura">
+    <VerticalStackLayout>
+        <Label Text="Tipos de Factura" HorizontalOptions="CenterAndExpand" Margin="10" FontSize="Title"/>
+
+
+        <CollectionView HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding TipoFacturas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,1,20,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*" />
+                                <ColumnDefinition Width="30*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="20" />
+                               
+                            </Grid.RowDefinitions>
+
+                            <Label Text="ID" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
+                            <Label Text="{Binding TipoFacturaID, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+                            <Label Text="Tipo de Factura" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
+                            <Label Text="{Binding TipoFactura, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green" Clicked="Button_Clicked"/>
+        <Button Text="Actualizar" Margin="20,1,20,5" BackgroundColor="Yellow" TextColor="Black"/>
+        <Button Text="Eliminar" Margin="20,1,20,5" BackgroundColor="red"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracMVVM.Views.Inicio"
+             Title="Inicio">
+    <VerticalStackLayout VerticalOptions="Center">
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="50,0,50,0">
+            <Label Text="Franklin Hernandez" HorizontalOptions="Center"  />
+            <Label Text="2019-0325" HorizontalOptions="Center"  />
+
+
+            <Button Text="Categorias" Margin="5" Clicked="Button_Clicked"/>
+            <Button Text="Productos" Margin="5" Clicked="Button_Clicked_1"/>
+            <Button Text="TipoFacturas" Margin="5" Clicked="Button_Clicked_2"/>
+            <Button Text="Clientes" Margin="5" Clicked="Button_Clicked_3"/>
+            <Button Text="Facturas" Margin="5" Clicked="Button_Clicked_4"/>
+            <Button Text="DetalleFacturas" Margin="5" Clicked="Button_Clicked_5"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
