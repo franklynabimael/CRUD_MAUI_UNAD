@@ -1,4 +1,4 @@
-﻿using PracMVVM.Models;
+﻿  using PracMVVM.Models;
 using PracMVVM.Services;
 using PracMVVM.Views;
 using System;
@@ -116,18 +116,6 @@ public class CategoriasViewModel: BaseViewModel
 
     private ICommand _updateCommand;
 
-    public ICommand UpdateCommand
-    {
-        get
-        {
-            return _updateCommand ?? (_updateCommand =
-                new Command((obj) =>
-                {
-                    Update();
-                }
-            ));
-        }
-    }
 
     private void Update()
     {

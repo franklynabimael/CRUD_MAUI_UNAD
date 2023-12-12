@@ -18,8 +18,8 @@ public class clsFacturasBE
     public float Descuento { get; set; }
     public float Monto { get; set; }
     public int TipoFacturaId { get; set; }
-    public virtual clsTipoFacturasBE TipoFacturas { get; set; }
+    public virtual clsTipoFacturasBE? TipoFacturas { get; set; }
     public int ClienteId { get; set; }
-    public virtual clsClientesBE Cliente { get; set;}
-    public virtual ICollection<clsDetalleFacturasBE> DetalleFacturas { get; set; }
+    public virtual clsClientesBE? Cliente { get; set;}
+    public virtual ICollection<clsDetalleFacturasBE>? DetalleFacturas { get; set; }
 }

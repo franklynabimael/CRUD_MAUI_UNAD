@@ -13,22 +13,13 @@ public class clsDetalleFacturasBE
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int DetalleFacturaID { get; set; }
-    [Required]
+    public int DetalleFacturaId { get; set; }
+   
     [StringLength(50)]
     public int ProductoID { get; set; }
-
-    public virtual clsProductosBE Producto { get; set; }
-    [Required]
-    [StringLength(50)]
+    public virtual clsProductosBE? Producto { get; set; }
     public int FacturaID { get; set; }
-    [Required]
-    [StringLength(50)]
     public float Costo {  get; set; }
-    [Required]
-    [StringLength(50)]
     public float Cantidad { get; set; }
-    [Required]
-    [StringLength(50)]
     public float Precio { get; set; }
 }

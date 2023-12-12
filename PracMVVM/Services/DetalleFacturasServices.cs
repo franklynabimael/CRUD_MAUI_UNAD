@@ -16,10 +16,10 @@ public class DetalleFacturasServices
 
     #region DetalleFacturas
 
-    public string DetalleFacturasSave(int ProductoID, int FacturaID, float Costo, float Cantidad, float Precio)
+    public string DetalleFacturasSave(int ProductoId, int FacturaId, float Costo, float Cantidad, float Precio)
     {
         try
-        {
+        { 
             db = new Contex();
 
             
@@ -27,8 +27,8 @@ public class DetalleFacturasServices
             db.clsDetalleFacturasBE.Add(new Models.clsDetalleFacturasBE
             {
 
-                ProductoID = ProductoID,
-                FacturaID = FacturaID,
+                ProductoID = ProductoId,
+                FacturaID = FacturaId,
                 Costo = Costo,
                 Cantidad = Cantidad,
                 Precio = Precio
@@ -41,18 +41,18 @@ public class DetalleFacturasServices
         catch (Exception ex) { return ex.Message; }
     }
 
-    public string DetalleFacturasUpdate(int DetalleFacturaID, int ProductoID, int FacturaID, float Costo, float Cantidad, float Precio)
+    public string DetalleFacturasUpdate(int DetalleFacturaId, int ProductoId, int FacturaId, float Costo, float Cantidad, float Precio)
     {
         try
         {
             db = new Contex();
 
-            var row = db.clsDetalleFacturasBE.Where(x => x.DetalleFacturaID == DetalleFacturaID).FirstOrDefault();
+            var row = db.clsDetalleFacturasBE.Where(x => x.DetalleFacturaId == DetalleFacturaId).FirstOrDefault();
 
             if (row != null)
             {
-                row.ProductoID = ProductoID;
-                row.FacturaID = FacturaID;
+                row.ProductoID = ProductoId;
+                row.FacturaID = FacturaId;
                 row.Costo = Costo;
                 row.Cantidad = Cantidad;
                 row.Precio = Precio;
@@ -72,13 +72,13 @@ public class DetalleFacturasServices
         }
     }
 
-    public string DetalleFacturasDeleteGetByDetalleFacturaID(int DetalleFacturaID)
+    public string DetalleFacturasDeleteGetByDetalleFacturaID(int DetalleFacturaId)
     {
         try
         {
             db = new Contex();
 
-            var row = db.clsDetalleFacturasBE.Where(x => x.DetalleFacturaID == DetalleFacturaID).FirstOrDefault();
+            var row = db.clsDetalleFacturasBE.Where(x => x.DetalleFacturaId == DetalleFacturaId).FirstOrDefault();
 
             if (row != null)
             {
@@ -97,13 +97,13 @@ public class DetalleFacturasServices
         }
     }
 
-    public clsDetalleFacturasBE DetalleFacturasGetByDetalleFacturaID(int DetalleFacturaID)
+    public clsDetalleFacturasBE DetalleFacturasGetByDetalleFacturaID(int DetalleFacturaId)
     {
         try
         {
             db = new Contex();
 
-            return db.clsDetalleFacturasBE.Where(x => x.DetalleFacturaID == DetalleFacturaID).FirstOrDefault();
+            return db.clsDetalleFacturasBE.Where(x => x.DetalleFacturaId == DetalleFacturaId).FirstOrDefault();
 
         }
         catch (Exception ex)
@@ -111,10 +111,18 @@ public class DetalleFacturasServices
             return new clsDetalleFacturasBE();
         }
     }
-        
+
     #endregion
 
+    public List<Models.clsDetalleFacturasBE> DetalleFacturasGet()
+    {
 
+        db = new Contex();
+
+        var result = db.clsDetalleFacturasBE;
+
+        return result.ToList();
+    }
 
 
 

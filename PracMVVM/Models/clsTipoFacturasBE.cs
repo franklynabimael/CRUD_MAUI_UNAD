@@ -14,7 +14,7 @@ public class clsTipoFacturasBE
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int TipoFacturaID { get; set; }
-    public string TipoFactura { get; set; }
+    public string? TipoFactura { get; set; }
 
 
 

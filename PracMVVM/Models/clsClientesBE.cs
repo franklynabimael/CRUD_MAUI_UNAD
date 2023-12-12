@@ -13,10 +13,10 @@ public class clsClientesBE
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ClienteID { get; set; }
-    public string Nombres { get; set;}
-    public string Direccion { get; set; }
+    public string? Nombres { get; set;}
+    public string? Direccion { get; set; }
 
-    public string Telefono { get; set; }
+    public string? Telefono { get; set; }
 
 
 
