@@ -15,6 +15,7 @@ internal class ProductosViewModels : BaseViewModel
     #region Variables locales
 
     string _producto;
+    int _productoId;
     float _costo;
     float _cantidad;
     float _precio;
@@ -58,6 +59,23 @@ internal class ProductosViewModels : BaseViewModel
                 _producto = value;
 
                 this.OnPropertyChanged(nameof(Producto));
+            }
+        }
+    }
+    public int ProductoId
+    {
+        get
+        {
+            return _productoId;
+        }
+
+        set
+        {
+            if (_productoId != value)
+            {
+                _productoId = value;
+
+                this.OnPropertyChanged(nameof(_productoId));
             }
         }
     }
@@ -136,15 +154,13 @@ internal class ProductosViewModels : BaseViewModel
 
     #endregion
 
-    #region Commands
-
-    private ICommand _saveCommand;
-
     private void MostrarFormulario()
     {
         App.Current.MainPage.Navigation.PushAsync(new ProductosView());
     }
 
+
+    private ICommand _saveCommand;
     public ICommand SaveCommand
     {
         get
@@ -157,7 +173,6 @@ internal class ProductosViewModels : BaseViewModel
             ));
         }
     }
-
     private void Save()
     {
         try
@@ -199,8 +214,6 @@ internal class ProductosViewModels : BaseViewModel
         }
         catch { }
     }
-
-    #endregion
 
     public ProductosViewModels()
     {

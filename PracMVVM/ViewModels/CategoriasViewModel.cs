@@ -116,6 +116,18 @@ public class CategoriasViewModel: BaseViewModel
 
     private ICommand _updateCommand;
 
+    public ICommand UpdateCommand
+    {
+        get
+        {
+            return _updateCommand ?? (_updateCommand =
+                new Command((obj) =>
+                {
+                    Update();
+                }
+            ));
+        }
+    }
 
     private void Update()
     {
@@ -126,17 +138,14 @@ public class CategoriasViewModel: BaseViewModel
                 Application.Current.MainPage.DisplayAlert("Aviso", "Es necesario el nombre del Categoria", "Aceptar");
                 return;
             }
-
             CategoriaServices data = new CategoriaServices();
             var result = data.CategoriasUpdate(CategoriasID, Categoria);
             getDatos();
-
             Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
             App.Current.MainPage.Navigation.PushAsync(new CategoriasGET());
         }
         catch { }
     }
-
     #endregion
 
     public CategoriasViewModel()

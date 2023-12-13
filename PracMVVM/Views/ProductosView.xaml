@@ -5,16 +5,17 @@
              Title="ProductosView">
     <VerticalStackLayout>
         <Label Text="Listas de Productos" HorizontalOptions="CenterAndExpand" Margin="10" FontSize="Title"/>
-
-
         <CollectionView HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding Productos}">
             <CollectionView.ItemTemplate>
+               
+                
                 <DataTemplate>
-                    <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,1,20,0">
+                     
+                    <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,5,20,0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30*" />
-                                <ColumnDefinition Width="70*" />
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="50*" />
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -24,14 +25,16 @@
                                 <RowDefinition Height="20" />
                                 <RowDefinition Height="20" />
                                 <RowDefinition Height="20" />
-                                
-                                
-                                
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="40" /> 
+
+
 
                             </Grid.RowDefinitions>
 
+
                             <Label Text="Producto ID" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
-                            <Label Text="{Binding ProductoID, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+                            <Label Text="{Binding ProductoId, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
 
                             <Label Text="Producto" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
                             <Label Text="{Binding Producto, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
@@ -48,16 +51,27 @@
                             <Label Text="CategoriaID" Grid.Column="0" Grid.Row="5" FontAttributes="Bold" />
                             <Label Text="{Binding CategoriaID, Mode=TwoWay}" Grid.Column="1" Grid.Row="5" />
 
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
 
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green" Clicked="Button_Clicked"/>
-        <Button Text="Actualizar" Margin="20,1,20,5" BackgroundColor="Yellow" TextColor="Black"/>
-        <Button Text="Eliminar" Margin="20,1,20,5" BackgroundColor="red"/>
+                            <Button Text="Actualizar" 
+                                    Margin="0, 0, 25, 0" 
+                                    BackgroundColor="Yellow" 
+                                    TextColor="Black"  
+                                    Grid.Column="1" Grid.Row="7"
+                                    Command="{Binding UpdateCommand, Mode=TwoWay}"/>
+                            <Button Text="Eliminar"
+                                    Margin="0, 0, 25, 0"
+                                    BackgroundColor="red" 
+                                    Grid.Column="0" Grid.Row="7" 
+                                    Command="{Binding DeleteCommand, Mode=TwoWay}"/>
 
+                         </Grid>
+                     </Frame>
+                    
+                    </DataTemplate>
 
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green"  Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

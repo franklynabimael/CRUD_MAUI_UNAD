@@ -45,7 +45,7 @@ public class ProductoServices
         {
             db = new Contex();
 
-            var row = db.clsProductosBE.Where(x => x.ProductoID == ProductoID).FirstOrDefault();
+            var row = db.clsProductosBE.Where(x => x.ProductoId == ProductoID).FirstOrDefault();
 
             if (row != null)
             {
@@ -73,7 +73,7 @@ public class ProductoServices
         {
             db = new Contex();
 
-            var row = db.clsProductosBE.Where(x => x.ProductoID == ProductoID).FirstOrDefault();
+            var row = db.clsProductosBE.Where(x => x.ProductoId == ProductoID).FirstOrDefault();
 
             if (row != null)
             {
@@ -91,13 +91,13 @@ public class ProductoServices
             return ex.Message;
         }
     }
-    public clsProductosBE ProductosGetByProductoID(int ProductoID)
+    public clsProductosBE ProductosGetByProductoID(int ProductoId)
     {
         try
         {
             db = new Contex();
 
-            return db.clsProductosBE.Where(x => x.ProductoID == ProductoID).FirstOrDefault();
+            return db.clsProductosBE.Where(x => x.ProductoId == ProductoId).FirstOrDefault();
 
         }
         catch (Exception ex)
