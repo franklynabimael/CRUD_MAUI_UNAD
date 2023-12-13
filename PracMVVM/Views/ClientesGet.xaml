@@ -13,8 +13,8 @@
                     <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,1,20,0">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30*" />
-                            <ColumnDefinition Width="70*" />
+                            <ColumnDefinition Width="50*" />
+                            <ColumnDefinition Width="50*" />
 
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -22,40 +22,52 @@
                             <RowDefinition Height="20" />
                             <RowDefinition Height="20" />
                             <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
                             
-                        </Grid.RowDefinitions>
+
+                            </Grid.RowDefinitions>
 
                             <Label Text="Cliente ID" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
                             <Label Text="{Binding ClienteID, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
                        
                             
 
-                        <Label Text="Nombre" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
+                            <Label Text="Nombre" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
                             <Label Text="{Binding Nombres, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
                             
-                             <Label Text="Direccion" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" />
+                           <Label Text="Direccion" Grid.Column="0" Grid.Row="2" FontAttributes="Bold" />
                            <Label Text="{Binding Direccion, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" />
                             
-                             <Label Text="Telefono" Grid.Column="0" Grid.Row="3" FontAttributes="Bold" />
+                            <Label Text="Telefono" Grid.Column="0" Grid.Row="3" FontAttributes="Bold" />
                             <Label Text="{Binding Telefono, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" />
+                            <Button Text="Actualizar" 
+                                    Margin="0, 0, 25, 0" 
+                                    BackgroundColor="Yellow" 
+                                    TextColor="Black"
+                                    Grid.Column="1" Grid.Row="4"
+                                    Command="{Binding UpdateCommand, Mode=TwoWay}"/>
+                            <Button Text="Eliminar" 
+                                    Margin="0, 0, 25, 0" 
+                                    BackgroundColor="red"
+                                    Grid.Column="0" Grid.Row="4"
+                                    Command="{Binding DeleteCommand, Mode=TwoWay}"/>
 
-                       
 
 
 
 
 
 
-                    </Grid>
+
+
+                        </Grid>
                     </Frame>
                 </DataTemplate>
                 
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green" Clicked="Button_Clicked"/>
-        <Button Text="Actualizar" Margin="20,1,20,5" BackgroundColor="Yellow" TextColor="Black"/>
-        <Button Text="Eliminar" Margin="20,1,20,5" BackgroundColor="red"/>
-
+        
 
     </VerticalStackLayout>
 </ContentPage>

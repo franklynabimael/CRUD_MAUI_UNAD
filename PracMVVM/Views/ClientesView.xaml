@@ -11,8 +11,6 @@
             <Button Text="Guardar" Margin="20,10,20,10" BackgroundColor="Green" Command="{Binding SaveCommand, Mode=TwoWay}"/>
             <Button Text="Volver" Margin="20,10,20,10" BackgroundColor="red" Clicked="Button_Clicked"/>
 
-
-
         </VerticalStackLayout>
 
     </VerticalStackLayout>

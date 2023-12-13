@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracMVVM.Views.ClientesUpdate"
+             Title="ClientesUpdate">
+    <VerticalStackLayout>
+        <Entry Placeholder="Nombres" Text="{Binding Path=Nombres}" Margin="20,1,20,1"/>
+        <Entry Placeholder="Direccion" Text="{Binding Path=Direccion}" Margin="20,1,20,1"/>
+        <Entry Placeholder="Telefono" Text="{Binding Path=Telefonos}" Margin="20,1,20,1"/>
+        <Button Text="Guardar" Margin="20,10,20,10" BackgroundColor="Green" Command="{Binding UpdateCommand, Mode=TwoWay}"/>
+        <Button Text="Volver" Margin="20,10,20,10" BackgroundColor="red"/>
+
+    </VerticalStackLayout>
+</ContentPage>

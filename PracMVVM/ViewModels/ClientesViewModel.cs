@@ -179,11 +179,12 @@ namespace PracMVVM.ViewModels;
 
           
 
-                ClienteServices data = new ClienteServices();
-                var result = data.ClientesSave(Nombres, Direccion, Telefonos);
-
-                App.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
-            }
+            ClienteServices data = new ClienteServices();
+             var result = data.ClientesSave(Nombres, Direccion, Telefonos);
+            getDatos();
+          
+            App.Current.MainPage.Navigation.PushAsync(new ClientesGet());
+        }
             catch { }
         }
     private void Delete()
@@ -192,12 +193,38 @@ namespace PracMVVM.ViewModels;
         {
             ClienteServices data = new ClienteServices();
             var result = data.DeleteByClienteID(ClienteId);
-
-            App.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            getDatos();
+           App.Current.MainPage.Navigation.PushAsync(new ClientesView());
         }
         catch { }
     }
 
+    private ICommand _updateCommand;
+
+    public ICommand UpdateCommand
+    {
+        get
+        {
+            return _updateCommand ?? (_updateCommand =
+                new Command((obj) =>
+                {
+                    Update();
+                }
+            ));
+        }
+    }
+    private void Update()
+    {
+        try
+        {
+            ClienteServices data = new ClienteServices();
+            var result = data.ClientesUpdate(ClienteId, Nombres, Direccion, Telefonos);
+            getDatos();
+            Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new ClientesGet());
+        }
+        catch { }
+    }
     #endregion
 
     public ClientesViewModel()

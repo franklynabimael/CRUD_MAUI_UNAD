@@ -11,6 +11,7 @@ public class TipoFacturasViewModel: BaseViewModel
     #region Variables locales
 
     string _TipoFactura;
+    int _tipoFacturaId;
     
 
     List<clsTipoFacturasBE> _TipoFacturas;
@@ -54,7 +55,23 @@ public class TipoFacturasViewModel: BaseViewModel
             }
         }
     }
+    public int TipoFacturaId
+    {
+        get
+        {
+            return _tipoFacturaId;
+        }
 
+        set
+        {
+            if (_tipoFacturaId != value)
+            {
+                _tipoFacturaId = value;
+
+                OnPropertyChanged(nameof(TipoFacturaId));
+            }
+        }
+    }
 
 
 
@@ -94,12 +111,43 @@ public class TipoFacturasViewModel: BaseViewModel
 
             TipoFacturaServices data = new TipoFacturaServices();
             var result = data.TipoFacturasSave(TipoFactura);
-
+            getDatos();
             Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new TipoFacturaView());
         }
         catch { }
     }
+    private ICommand _updateCommand;
 
+    public ICommand UpdateCommand
+    {
+        get
+        {
+            return _updateCommand ?? (_updateCommand =
+                new Command((obj) =>
+                {
+                    Update();
+                }
+            ));
+        }
+    }
+    private void Update()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(TipoFacturaId.ToString()))
+            {
+                Application.Current.MainPage.DisplayAlert("Aviso", "Por Favor seleccione una TipoFactura valida", "Aceptar");
+                return;
+            }
+            TipoFacturaServices data = new TipoFacturaServices();
+            var result = data.TipoFacturasUpdate(TipoFacturaId, TipoFactura);
+            getDatos();
+            Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new TipoFacturaView());
+        }
+        catch { }
+    }
     #endregion
 
     public TipoFacturasViewModel()

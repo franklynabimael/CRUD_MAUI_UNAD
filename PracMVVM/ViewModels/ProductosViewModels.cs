@@ -209,8 +209,40 @@ internal class ProductosViewModels : BaseViewModel
 
             ProductoServices data = new ProductoServices();
             var result = data.ProductosSave(Producto, Costo, Cantidad, Precio, CategoriaID);
+            getDatos();
+            Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new ProductosView());
+        }
+        catch { }
+    }
+    private ICommand _updateCommand;
 
-            App.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+    public ICommand UpdateCommand
+    {
+        get
+        {
+            return _updateCommand ?? (_updateCommand =
+                new Command((obj) =>
+                {
+                    Update();
+                }
+            ));
+        }
+    }
+    private void Update()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(CategoriaID.ToString()))
+            {
+                Application.Current.MainPage.DisplayAlert("Aviso", "Por Favor seleccione una categoria valida", "Aceptar");
+                return;
+            }
+            ProductoServices data = new ProductoServices();
+            var result = data.ProductosUpdate( ProductoId, Producto, Costo, Cantidad, Precio, CategoriaID);
+            getDatos();
+            Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new ProductosView());
         }
         catch { }
     }

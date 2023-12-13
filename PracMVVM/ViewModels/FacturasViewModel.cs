@@ -265,13 +265,11 @@ public class FacturasViewModel : BaseViewModel
                 App.Current.MainPage.DisplayAlert("Aviso", "Es necesario ClienteID", "Aceptar");
                 return;
             }
-        
-
-
+      
             FacturaServices data = new FacturaServices();
             var result = data.FacturasSave(Fecha,SubTotal,Descuento,Monto, TipoFacturaId, ClienteId);
-
-            App.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            getDatos();
+            App.Current.MainPage.Navigation.PushAsync(new FacturasView());
         }
         catch { }
     }
@@ -281,12 +279,44 @@ public class FacturasViewModel : BaseViewModel
         {
             FacturaServices data = new FacturaServices();
             var result = data.DeleteByFacturaID(FacturaID);
-
+            getDatos();
             App.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new FacturasView());
+        }
+        catch { }
+
+    }
+    private ICommand _updateCommand;
+
+    public ICommand UpdateCommand
+    {
+        get
+        {
+            return _updateCommand ?? (_updateCommand =
+                new Command((obj) =>
+                {
+                    Update();
+                }
+            ));
+        }
+    }
+    private void Update()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(FacturaID.ToString()))
+            {
+                Application.Current.MainPage.DisplayAlert("Aviso", "Por Favor seleccione una categoria valida", "Aceptar");
+                return;
+            }
+            FacturaServices data = new FacturaServices();
+            var result = data.FacturasUpdate(FacturaID, Fecha, SubTotal, Descuento, Monto, TipoFacturaId, ClienteId);
+            getDatos();
+            Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
+            App.Current.MainPage.Navigation.PushAsync(new FacturasView());
         }
         catch { }
     }
-
     #endregion
 
     public FacturasViewModel()

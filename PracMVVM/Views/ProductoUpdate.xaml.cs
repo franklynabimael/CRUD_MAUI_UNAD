@@ -14,9 +14,13 @@ public partial class ProductoUpdate : ContentPage
         ProductosViewModels viewModel = new ProductosViewModels();
         viewModel.Producto = ProductoDb.Producto;
         viewModel.ProductoId = ProductoDb.ProductoId;
+        viewModel.Costo = ProductoDb.Costo;
+        viewModel.Cantidad = ProductoDb.Cantidad;
+        viewModel.Precio = ProductoDb.Precio;
+        viewModel.CategoriaID = ProductoDb.CategoriaID;
 
         BindingContext = viewModel;
-        BindingContext = new ProductosViewModels();
+        
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
