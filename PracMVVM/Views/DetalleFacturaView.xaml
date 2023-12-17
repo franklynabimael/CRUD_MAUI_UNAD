@@ -13,9 +13,8 @@
                     <Frame BorderColor="Black" BackgroundColor="LightGray" Margin="20,1,20,0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30*" />
-                                <ColumnDefinition Width="70*" />
-
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="50*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20" />
@@ -23,11 +22,7 @@
                                 <RowDefinition Height="20" />
                                 <RowDefinition Height="20" />
                                 <RowDefinition Height="20" />
-                                <RowDefinition Height="20" />
-
-
-
-
+                                <RowDefinition Height="40" />
                             </Grid.RowDefinitions>
 
                             <Label Text="Producto ID" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
@@ -45,6 +40,18 @@
                             <Label Text="Precio" Grid.Column="0" Grid.Row="4" FontAttributes="Bold" />
                             <Label Text="{Binding Precio, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" />
 
+                            <Button Text="Actualizar" 
+                                    Margin="0,0,20,0" 
+                                    BackgroundColor="Yellow" 
+                                    TextColor="Black"
+                                    Grid.Column="1" Grid.Row="5"
+                                    Command="{Binding UpdateCommand, Mode=TwoWay}"/>
+                            <Button Text="Eliminar" 
+                                    Margin="0,0,20,0" 
+                                    BackgroundColor="red"
+                                    Grid.Column="0" Grid.Row="5"
+                                    Command="{Binding DeleteCommand, Mode=TwoWay}"/>
+
                         </Grid>
                     </Frame>
                 </DataTemplate>
@@ -52,8 +59,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Crear" Margin="20,1,20,5" BackgroundColor="Green" Clicked="Button_Clicked"/>
-        <Button Text="Actualizar" Margin="20,1,20,5" BackgroundColor="Yellow" TextColor="Black"/>
-        <Button Text="Eliminar" Margin="20,1,20,5" BackgroundColor="red"/>
+        
 
 
     </VerticalStackLayout>

@@ -112,6 +112,9 @@
 	  <MauiXaml Update="Views\DetalleFacturaCrear.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\DetalleFacturaUpdate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DetalleFacturaView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

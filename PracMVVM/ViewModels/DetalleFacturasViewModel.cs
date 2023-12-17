@@ -256,7 +256,7 @@ public class DetalleFacturasViewModel : BaseViewModel
          getDatos();
 
          Application.Current.MainPage.DisplayAlert("Aviso", result, "Aceptar");
-         App.Current.MainPage.Navigation.PushAsync(new CategoriasGET());
+         App.Current.MainPage.Navigation.PushAsync(new DetalleFacturaView());
        
     }
     private void Delete()
